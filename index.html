@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <title>Windows 11 OOBE</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" href="src/logowin11oobesite.png" type="image/png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Windows 11 OOBE">
+        <meta property="og:description" content="Windows 11 OOBE - изменённая первоначальная настройка Windows 11.">
+        <meta property="og:url" content="https://windows11oobe.github.io/">
+        <meta property="og:locale" content="ru_RU">
+        <meta property="og:image" content="https://windows11oobe.github.io/src/bg.jpg">
+        <meta property="og:image:width" content="256">
+        <meta property="og:image:height" content="256">
+    </head>
+    <body class="noscroll">
+        <div class="navbar hide" id="navbar">
+            <div class="content">
+                <a href="#body"><img src="src/logowin11oobesite.png" width="28px"></a>
+                <a href="#OOBE">OOBE</a>
+                <a href="#Build">Сборка</a>
+                <a href="#Download">Скачать</a>
+                <!-- <a href="#Links">Ссылки</a> -->
+            </div>
+        </div>
+        <div class="hint" id="hint">Нажми, чтобы продолжить (не рикролл)</div>
+        <div class="oobeintro">
+            <video id="videointro" onclick="playintro()">
+                <source src="src/oobeintro3.mp4" type='video/mp4'>
+                Твой браузер не поддерживает тег video. :(
+            </video>
+        </div>
+        <div class="oobepreview hide" id="body">
+            <div class="background"></div>
+            <div class="container">
+                <div class="content">
+                    <div class="half left"></div>
+                    <div class="half right">
+                        <div class="text">
+                            <h1>Windows 11 OOBE</h1>
+                            <p>By Muralmaks IT</p>
+                            <hr>
+                            <p>Изменённый OOBE с тёмной темой, зелёными цветами и оптимизацией.</p>
+                            <button id="but">Подробнее</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="blocks" id="blocks">
+            <div class="block" id="OOBE">
+                <h1>OOBE:</h1>
+                <div class="twosections">
+                    <div class="oobetext">
+                        <div class="oobetextcontainer">
+                            <h1>Добавлено:</h1>
+                            <ul>
+                                <li>Зелёные цвета</li>
+                                <li>Тёмная тема</li>
+                                <li>Тёмное интро</li>
+                                <li>Оптимизация:</li>
+                                <ul class="secondul">
+                                    <li>Уменьшено разрешение интро</li>
+                                    <li>Убраны анимации левой панели</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="oobescreen"></div>
+                </div>
+            </div>
+            <div class="block">
+                <h1>Видео про OOBE:</h1>
+                <div class="videos">
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/AtdVlkIUtk8" frameborder="0"><a href="https://www.youtube.com/watch?v=AtdVlkIUtk8">Видео #1</a></iframe>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/37aLnBG5m38" frameborder="0"><a href="https://www.youtube.com/watch?v=37aLnBG5m38">Видео #2</a></iframe>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/kuewPCtyS0Y" frameborder="0"><a href="https://www.youtube.com/watch?v=kuewPCtyS0Y">Видео #3</a></iframe>
+                    <iframe width="480" height="270" src="https://www.youtube.com/embed/ozym38Mhfqw" frameborder="0"><a href="https://www.youtube.com/watch?v=ozym38Mhfqw">Видео #4</a></iframe>
+                </div>
+            </div>
+            </div>
+            <div class="block" id="Build">
+                <h1>Сборка:</h1>
+                <div class="twosections sectionleft">
+                    <div class="oobetext">
+                        <div class="oobetextcontainer">
+                            <h1>Добавлено:</h1>
+                            <ul>
+                                <li>Тема <a href="https://my-wallpapers.github.io">My wallpapers</a></li>
+                                <li>Изменённое OOBE</li>
+                                <li>Убрано:</li>
+                                <ul class="secondul">
+                                    <li>Мусор с панели задач</li>
+                                    <li>OneDrive</li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+                    <div id="buildscreen"></div>
+                </div>
+            </div>
+            <div class="block">
+                <h1>Видео про сборку:</h1>
+                <div class="novideos"><h1>Их нет, но ты можешь стать первым!<br><a href="#Download">Скачать сборку</a></h1></div>
+            </div>
+            <div class="block" id="Download">
+                <div class="background">
+                    <h1>Скачать:</h1>
+                    <div class="downloadflex">
+                        <div class="downloadcontainer">
+                            <h2>Windows 11 by Muralmaks IT</h2>
+                            <div class="buttonsgrid1">
+                                <button onclick="download(0, 0)">Скачать</button>
+                            </div>
+                            <h2>Windows 11 OOBE by Muralmaks IT</h2>
+                            <div class="buttonsgrid2">
+                                <button onclick="download(1, 0)">Github</button>
+                                <button onclick="download(1, 1)">Прямая ссылка</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="block links">
+                <h1>Ссылки</h1>
+            </div> -->
+        </div>
+        <a id="goto" href="#blocks">a</a>
+    </body>
+    <script>
+
+        if (window.location.href.includes('#')){
+            document.querySelector('body').classList.remove('noscroll');
+            if (document.getElementById('videointro')){
+                document.getElementById('hint').remove();
+                document.getElementById('videointro').remove();
+                document.getElementById('body').classList.remove('hide');
+            }
+        }
+
+        var isplayed = false;
+        var isshow = false;
+
+        function playintro(){
+            if (!isplayed){
+                isplayed = true;
+                document.getElementById('videointro').play();
+                document.getElementById('hint').remove();
+                setTimeout(function(){
+                    document.getElementById('videointro').remove();
+                    document.getElementById('body').classList.remove('hide');
+                    document.querySelector('body').classList.remove('noscroll');
+                }, 5500)
+            }
+        }
+
+        document.getElementById('but').addEventListener('click', function(){document.getElementById("goto").click();});
+
+        document.addEventListener('scroll', function(e){
+            if (window.scrollY >= window.innerHeight) {
+                if (!isshow){
+                    document.getElementById('navbar').classList.remove('hide');
+                    document.getElementById('navbar').classList.add('shownavbar');
+                    isshow = true;
+                }
+            } else {
+                if (isshow){
+                    document.getElementById('navbar').classList.remove('shownavbar');
+                    isshow = false;
+                }
+            }
+        })
+
+
+        function download(file, from){
+            window.scrollY = 0;
+            document.querySelector('body').classList.add('noscroll')
+            document.querySelector('body').insertAdjacentHTML('afterbegin', '<div class="roll"><h1>Зарикроллен XD</h1></div>');
+            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
+        }
+    </script>
+</html>
