@@ -20,10 +20,10 @@
                 <a href="#OOBE">OOBE</a>
                 <a href="#Build">Сборка</a>
                 <a href="#Download">Скачать</a>
-                <!-- <a href="#Links">Ссылки</a> -->
+                <a href="#Links">Ссылки</a>
             </div>
         </div>
-        <div class="hint" id="hint">Нажми, чтобы продолжить (не рикролл)</div>
+        <div class="hint" id="hint">Нажми, чтобы продолжить. (Запуск анимации)</div>
         <div class="oobeintro">
             <video id="videointro" onclick="playintro()">
                 <source src="src/oobeintro3.mp4" type='video/mp4'>
@@ -121,15 +121,99 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="block links">
+            <div class="block" id="Links">
                 <h1>Ссылки</h1>
-            </div> -->
+                <div class="linkscontainer">
+                    <div class="box">
+                        <div>
+                            <img src="src/avatars/MIT.png">
+                        </div>
+                        <div>
+                            <h2>YouTube:</h2>
+                            <a href="https://youtube.com/@muralmaksit">Muralmaks IT</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <img src="src/avatars/Enderman.webp">
+                        </div>
+                        <div>
+                            <h2>Огромное спасибо этому человеку:</h2>
+                            <a href="https://youtube.com/@Endermanch">Enderman</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <img src="src/bg.jpg">
+                        </div>
+                        <div>
+                            <h2>Обои с OOBE:</h2>
+                            <a href="src/bg.jpg">bg.jpg</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <img src="src/lucide--donut.svg">
+                        </div>
+                        <div>
+                            <h2 class="bigtext">Задонатить автору за проделанный труд<span><br>(на восстановление нервных клеток)</span>:</h2>
+                            <a href="https://www.donationalerts.com/r/muralmaks_it">Donation Alerts</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <img src="src/ic--baseline-telegram.svg">
+                        </div>
+                        <div>
+                            <h2>Telegram:</h2>
+                            <a href="https://t.me/muralmaksit">Muralmaks IT</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <img src="src/ic--baseline-discord.svg">
+                        </div>
+                        <div>
+                            <h2>Discord:</h2>
+                            <a href="https://discord.gg/4MK4hhFZsX">Muralmaks IT Server</a>
+                        </div>
+                    </div>
+                    <div class="box col">
+                        <div>
+                            <img src="src/material-symbols--mail.svg">
+                        </div>
+                        <div>
+                            <h2>Написать автору в ЛС:</h2>
+                            <a id="discordusr" onclick="copied()" class="tipalink">Discord (cat8753)</a>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div>
+                            <img src="src/win11oobelogo.png">
+                        </div>
+                        <div>
+                            <h2>Перезапустить интро</h2>
+                            <a onclick="reloadintro()" class="tipalink">Перезапустить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <a id="goto" href="#blocks">a</a>
     </body>
     <script>
 
-        if (window.location.href.includes('#')){
+        try {
+            localStorage.getItem('firstopen');
+        } catch (e) {
+            localStorage.setItem('firstopen', 'true');
+        }
+
+        if (localStorage.getItem('firstopen') == null) {
+            localStorage.setItem('firstopen', 'true');
+        }
+
+        if (localStorage.getItem('firstopen') == 'false' || window.location.href.includes('#')){
             document.querySelector('body').classList.remove('noscroll');
             if (document.getElementById('videointro')){
                 document.getElementById('hint').remove();
@@ -140,6 +224,9 @@
 
         var isplayed = false;
         var isshow = false;
+        var isbannershow = false;
+        var count = 0;
+        var oldnum = null;
 
         function playintro(){
             if (!isplayed){
@@ -147,6 +234,7 @@
                 document.getElementById('videointro').play();
                 document.getElementById('hint').remove();
                 setTimeout(function(){
+                    localStorage.setItem('firstopen', 'false');
                     document.getElementById('videointro').remove();
                     document.getElementById('body').classList.remove('hide');
                     document.querySelector('body').classList.remove('noscroll');
@@ -173,10 +261,63 @@
 
 
         function download(file, from){
-            window.scrollY = 0;
-            document.querySelector('body').classList.add('noscroll')
-            document.querySelector('body').insertAdjacentHTML('afterbegin', '<div class="roll"><h1>Зарикроллен XD</h1></div>');
-            window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", '_blank');
+            if (oldnum == file){
+            } else {
+                oldnum = file;
+                count = 0;
+            }
+            banner()
+        }
+
+        function banner(){
+            if (isbannershow){
+                document.getElementById('banner').classList.add('hideanim');
+                setTimeout(function(){
+                    document.querySelector('body').classList.remove('noscroll');
+                    document.getElementById('banner').remove();
+                    isbannershow = false;
+                }, 250)
+            } else {
+                if (count === 5){
+                    if(confirm('Ух, какой ты настойчивый!\nУгадаешь число от 0 до 9999, дам бета-образ.\nСможешь?')){
+                        while (true){
+                            pr = prompt('Число:');
+                            console.log(pr)
+                            if(pr === '3548'){
+                                alert('0_0\nПоздравляю! Идёт перенаправление к загрузке образа.');
+                                window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+                                count++;
+                                break;
+                            } else if (pr == null){
+                                count++;
+                                break;
+                            }
+                        }
+                    } else {
+                        count++;
+                    }
+                } else {
+                    document.querySelector('body').classList.add('noscroll')
+                    document.querySelector('body').insertAdjacentHTML('afterbegin',`
+                    <div class="flex" id="banner"><div class="banner"><h1>🚧 <span>Сборка ещё не вышла</span> 🚧</h1><h3>Сборка ещё не вышла и недоступна для скачивания!</h3><h3>Примерная дата релиза: 3 - 7 апреля.</h3><div class="button"><button onclick="banner()">Ок</button></div></div></div>
+                    `);
+                    isbannershow = true;
+                    count++;
+                }
+            }
+        }
+
+        function copied(){
+            navigator.clipboard.writeText('cat8753'); 
+            document.getElementById('discordusr').textContent = "Скопировано!";
+            setTimeout(function(){
+                document.getElementById('discordusr').textContent = "Discord (cat8753)";
+            }, 1500)
+        }
+
+        function reloadintro() {
+            localStorage.setItem('firstopen', 'true');
+            window.location.href = 'https://windows-11-oobe.github.io/';
         }
     </script>
 </html>
