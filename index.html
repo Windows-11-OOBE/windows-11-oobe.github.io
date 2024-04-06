@@ -108,7 +108,7 @@
                     <h1>Скачать:</h1>
                     <div class="downloadflex">
                         <div class="downloadcontainer">
-                            <h2>Windows 11 by Muralmaks IT</h2>
+                            <h2>Windows 11 by Muralmaks IT (V1)</h2>
                             <div class="buttonsgrid1">
                                 <button onclick="download(0, 0)">Скачать</button>
                             </div>
@@ -261,12 +261,16 @@
 
 
         function download(file, from){
-            if (oldnum == file){
+            if (file == 0){
+                window.location.href = "https://pixeldrain.com/u/yd8de2zo";
             } else {
-                oldnum = file;
-                count = 0;
+                if (oldnum == file){
+                } else {
+                    oldnum = file;
+                    count = 0;
+                }
+                banner()
             }
-            banner()
         }
 
         function banner(){
@@ -297,9 +301,9 @@
                         count++;
                     }
                 } else {
-                    document.querySelector('body').classList.add('noscroll')
+                    document.querySelector('body').classList.add('noscroll');
                     document.querySelector('body').insertAdjacentHTML('afterbegin',`
-                    <div class="flex" id="banner"><div class="banner"><h1>🚧 <span>Сборка ещё не вышла</span> 🚧</h1><h3>Сборка ещё не вышла и недоступна для скачивания!</h3><h3>Примерная дата релиза: 3 - 7 апреля.</h3><div class="button"><button onclick="banner()">Ок</button></div></div></div>
+                    <div class="flex" id="banner"><div class="banner"><h1><span>Скоро.</span></h1><div class="button"><button onclick="banner()">Ок</button></div></div></div>
                     `);
                     isbannershow = true;
                     count++;
