@@ -215,7 +215,7 @@ video {
     padding-top: 56px;
 }
 
-#goto {
+#goto, #d {
     display: none;
 }
 

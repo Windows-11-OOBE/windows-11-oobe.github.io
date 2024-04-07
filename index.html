@@ -200,6 +200,7 @@
             </div>
         </div>
         <a id="goto" href="#blocks">a</a>
+        <a id="d" href="src/CloudExperienceHost.zip">d</a>
     </body>
     <script>
 
@@ -264,16 +265,15 @@
             if (file == 0){
                 window.location.href = "https://pixeldrain.com/u/yd8de2zo";
             } else {
-                if (oldnum == file){
+                if (from == 0){
+                    window.location.href = "https://github.com/Windows-11-OOBE/Windows11GreenOOBE";
                 } else {
-                    oldnum = file;
-                    count = 0;
+                    document.getElementById('d').click();
                 }
-                banner()
             }
         }
 
-        function banner(){
+        /* function banner(){
             if (isbannershow){
                 document.getElementById('banner').classList.add('hideanim');
                 setTimeout(function(){
@@ -309,7 +309,7 @@
                     count++;
                 }
             }
-        }
+        } */
 
         function copied(){
             navigator.clipboard.writeText('cat8753'); 
